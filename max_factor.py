@@ -8,4 +8,12 @@ def valid_max_factor():
             print("That's not a number, you must enter a number.")
             continue
         else:
-            return max_factor
+            if max_factor == int(0):
+                print("Zero is too easy! Please enter a number greater than zero.")
+                try:
+                    max_factor = int(max_factor)
+                except ValueError:
+                    print("That's not a number, you must enter a number.")
+                    continue
+            else:
+                return max_factor

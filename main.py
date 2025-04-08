@@ -48,6 +48,7 @@ def main():
     
     end_game_input = input("Would you like to play again? Type Y and press ENTER if you would like to play again: ")
     if end_game_input == "Y":
+        print("\n")
         main()
     else:
         quit
