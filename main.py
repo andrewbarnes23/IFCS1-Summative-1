@@ -4,6 +4,7 @@ def main():
     from generate_equation import equation
     from rounds import valid_integer_rounds
     from max_factor import valid_max_factor
+    from retry import retry_game_check
     
     #Global variables to initate score and attempt tracking
     score = 0
@@ -44,14 +45,14 @@ def main():
                 print("Your answer was correct!")
     
     print(f"Your total score was {score} out of {attempts} attempts.")
-    print("Thanks for playing!")
-    
-    end_game_input = input("Would you like to play again? Type Y and press ENTER if you would like to play again: ")
-    if end_game_input == "Y":
+    print("Thanks for playing!")   
+
+    retry_game = retry_game_check()
+    if retry_game == True:
         print("\n")
         main()
     else:
         quit
-        
+
 if __name__ == "__main__":
    main()
