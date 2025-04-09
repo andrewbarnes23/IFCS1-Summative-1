@@ -30,7 +30,7 @@ def main():
         print(f"{factor_one} x 𝑥 = {result}")
         
         while user_guess != factor_two:
-            user_guess = input("𝑥 =")
+            user_guess = input("𝑥 = ")
             try:
                 user_guess = int(user_guess)
             except ValueError:
