@@ -8,4 +8,12 @@ def valid_integer_rounds():
             print("That's not a number, you must enter a number.")
             continue
         else:
-            return number_of_rounds
+            if number_of_rounds == int(0):
+                print("Zero means you can't play! Please enter a number greater than zero.")
+                try:
+                    number_of_rounds = int(number_of_rounds)
+                except ValueError:
+                    print("That's not a number, you must enter a number.")
+                    continue
+            else:
+                return number_of_rounds

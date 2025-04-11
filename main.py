@@ -37,15 +37,20 @@ def main():
                 print("That's not a number, you must enter a number. Marking this answer as incorrect.")
             if user_guess != factor_two:
                 attempts += 1
-                print(f"Your answer was incorrect. The correct answer was {factor_two}.")
+                print(f"Your answer was incorrect. The correct answer was {factor_two}. Your current score is {score} out of {attempts} attempts.")
                 break
             else:
                 attempts += 1
                 score += 1
-                print("Your answer was correct!")
+                print(f"Your answer was correct! Your current score is {score} out of {attempts} attempts.")
     
-    print(f"Your total score was {score} out of {attempts} attempts.")
-    print("Thanks for playing!")   
+    print(f"\nThat's the end! Your total score was {score} out of {attempts} attempts.")
+
+    if score == attempts:
+        print("You smashed it!")
+        print("Thanks for playing!")   
+    else:
+        print("Thanks for playing!")       
 
     retry_game = retry_game_check()
     if retry_game == True:
