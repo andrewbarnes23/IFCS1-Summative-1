@@ -55,13 +55,13 @@ git clone https://github.com/andrewbarnes23/IFCS1-Summative-1.git {add optional 
 
 ### Equations Solving Game Launch
 
-#### Python
+#### Operating Sytem via Python
 
-Open the 'main.py' file with Python.
+Open the 'main.py' file with Python in the File Explorer of the user's operating system.
 
 #### Terminal
 
-Navigate to the installation directory and run main.py
+Navigate to the installation directory and type main.py to run
 
 ### Gameplay Operation
 
@@ -89,3 +89,71 @@ Use CTRL+C or equivalent for the operating system to quit the game. Alternativel
 
 ## Technical Documentation
 
+### Folder Structure
+
+```
+IFCS1-Summative-1-Equation/
+main.py                     # Main script for game.
+generate_equation.py        # Equation function to generate new random equations every round.
+rounds.py                   # Function to validate user input when asked to provide desired number of rounds.
+max_factor.py               # Function to validate user input when asked to provide desired maximum factor to play with.
+retry.py                    # Function to validate user input when asked to provide choice to replay the game or not once the session is over.
+```
+
+#### main.py
+
+Main game file. Contains game logic within defined `main()` function. 
+
+`main()`:
+- Imports the required functions from the other game files.
+- Initiates global variables `score` and `attempts` to track the correct answers and total iterations throughout the session.
+- `Print` statements at each stage from end to end game start to game conclusion.
+- Initiates global variables `number_of_rounds` and `max_factor` for the session, validating each through respective individual functions.
+- Validates user input as `user_guess` against variable `factor_two`, repeating until the user's `attempts` is equal to `number_of_rounds`.
+
+#### generate_equation.py
+
+File containing `equation(max_factor)` function.
+
+- Using `random`, sets factor variables for the equation from a range of `(1,max_factor)`.
+- Returns tuple `factor_one,factor_two,product` for assignment in `main()`.
+
+#### rounds.py
+
+File containing `valid_integer_rounds()` function.
+
+- Using ` while True:` loop, takes `input()` from the user. 
+- Since `input()` is a string, attempt to convert `number_of_rounds` to integer.
+- First checks if the `input()` passed is a valid integer. Upon a `ValueError` (e.g a non-convertible string), `continue` restarts the loop until an integer is passed.
+- Upon successful check for integer, check for `input()` of 0. 0 is a valid integer, but otherwise causes the game to immediately end with no rounds played. If 0 is passed, the loop restarts until a non-0 value is entered.
+- Once all conditions are successful, return the integer for use in `main()`.
+
+#### max_factor.py
+
+File containing `valid_max_factor()` function. Similar logic to rounds.py.
+
+- Using ` while True:` loop, takes `input()` from the user. 
+- Since `input()` is a string, attempt to convert `max_factor` to integer.
+- First checks if the `input()` passed is a valid integer. Upon a `ValueError`(e.g a non-convertible string), `continue` restarts the loop until an integer is passed.
+- Upon successful check for integer, check for `input()` of 0. 0 is a valid integer, but otherwise causes the equation to generate x*0, which is always 0. If 0 is passed, the loop restarts until a non-0 value is entered.
+- Once all conditions are successful, return the integer for use in `main()`.
+
+#### retry.py
+
+File containing `retry_game_check()` function.
+
+- Using ` while True:` loop, takes `input()` from the user.
+- Validates `input()` to be either Y or N values (as per main() print() statement) to `return True` or `return False`
+- If `True`, assign to variable `retry_game` in `main()` to allow for `main()` recalled so the game starts again.
+
+### Modules
+
+- `random`
+- `input()`
+
+- No external modules used.
+
+### Future Enhancements
+
+- Refactor of all code to purify all functions.
+- Use of pytest in functions to allow for test automation.
