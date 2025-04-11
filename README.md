@@ -116,6 +116,7 @@ Main game file. Contains game logic within defined `main()` function.
 File containing `equation(max_factor)` function.
 
 - Using `random`, sets factor variables for the equation from a range of `(1,max_factor)`.
+- Sets `product = factor_one*factor_two`
 - Returns tuple `factor_one,factor_two,product` for assignment in `main()`.
 
 #### rounds.py
